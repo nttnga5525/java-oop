@@ -1,13 +1,11 @@
 package lab5;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class simpleMenu {
     public static void main(String[] args) {
         boolean isContinuing = true;
-        List<String> student = new ArrayList<>();
+        Map<Integer,String> student = new HashMap<>();
         while (isContinuing){
             // Display menu
             System.out.println("=====Menu=====");
@@ -26,13 +24,14 @@ public class simpleMenu {
                 if (userInput == 1){
                     System.out.print("Student Name: ");
                     String studentName = scanner.next();
-                    student.add(studentName);
-                    System.out.println("Student ID: " + (student.size()-1));
+                    System.out.print("Student ID: ");
+                    int studentID = scanner.nextInt();
+                    student.put(studentID, studentName);
                 }
                 if (userInput == 2){
                     System.out.print("Input student ID: ");
                     int studentID = scanner.nextInt();
-                    if (studentID >= 0 & studentID < student.size()){
+                    if (studentID >= 0 & student.get(studentID)!= null){
                         System.out.println("Student ID: " + student.get(studentID));
                     }else {
                         System.out.println("There is no student");
