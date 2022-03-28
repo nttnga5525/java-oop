@@ -18,6 +18,8 @@ public class TestAnimalBuilder {
 
     private static void getMaxSpeed(List<Animal> animalList) {
         lab8_2.Animal animalMaxSpeed = new lab8_2.Animal();
+        animalMaxSpeed.setName(animalList.get(0).getName());
+        animalMaxSpeed.setSpeed(animalList.get(0).getSpeed());
         for (Animal animal : animalList) {
             if (!animal.isFlyable() && animal.getSpeed() > animalMaxSpeed.getSpeed()) {
                 animalMaxSpeed.setSpeed(animal.getSpeed());
